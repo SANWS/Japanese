@@ -66,4 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const infoIcon = document.querySelector('.info-icon');
+    const tooltip = document.querySelector('.tooltip');
 
+    infoIcon.addEventListener('click', function(event) {
+        event.stopPropagation();
+        if (tooltip.style.display === 'block') {
+            tooltip.style.display = 'none';
+            infoIcon.classList.remove('active');
+        } else {
+            tooltip.style.display = 'block';
+            infoIcon.classList.add('active');
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (tooltip.style.display === 'block') {
+            tooltip.style.display = 'none';
+            infoIcon.classList.remove('active');
+        }
+    });
+});
